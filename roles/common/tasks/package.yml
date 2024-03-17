@@ -1,0 +1,11 @@
+---
+- name: Install common packages
+  package:
+    name: '{{ common_package_list }}'
+    state: present
+
+- name: Install SELinux
+  package:
+    name: '{{ selinux_package_list }}'
+    state: present
+

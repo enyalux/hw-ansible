@@ -1,0 +1,12 @@
+---
+- name: Home task
+  #hosts: managed_nodes
+  hosts: control
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: Print list of Network interfaces
+      debug:
+        msg: " {{ ansible_destribution }} "
+

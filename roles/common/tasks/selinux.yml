@@ -1,0 +1,15 @@
+---
+- name: Update repository cache
+  apt: update-cache=yes
+
+- name: Install build-essential
+  apt: 
+    name=build-essential 
+    state=present
+
+- name: Install SELinux package
+  package:
+    name: '{{selinux_package_list}}'
+    state: present 
+
+

@@ -1,0 +1,6 @@
+---
+- include_tasks: package.yml
+- include_tasks: selinux.yml
+- include_tasks: disable_selinux.yml
+
+ 

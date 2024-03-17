@@ -1,0 +1,17 @@
+---
+- name: Disable SELinux 
+  selinux:
+    state: disabled
+  register: selinux_disabled
+
+  notify: 
+    - Reboot Server
+    #when: selinux_disabled.changed == False # is changed
+    #when: selinux_disabled.reboot_required
+
+- debug:
+    msg: 
+      - 'Result is {{ selinux_disabled }}'
+      - 'Result.changed is {{ selinux_disabled.changed }}'
+      - 'Reboot_required = {{ selinux_disabled.reboot_required }}'
+

@@ -1,0 +1,16 @@
+---
+common_package_list:
+  - curl
+  - lsof
+  - mc
+  - nano
+  - tar
+  - unzip
+  - vim
+  - zip
+
+selinux_package_list:
+  - policycoreutils
+  - selinux-basics 
+  - selinux-utils
+    #- libselinux-python3

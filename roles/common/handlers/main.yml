@@ -1,0 +1,6 @@
+---
+- name: Reboot Server
+  #command: systemctl reboot
+  debug: 
+    msg: 'Need reboot'
+
