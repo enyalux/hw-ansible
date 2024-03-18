@@ -1,6 +1,16 @@
 ---
 - name: Reboot Server
+  become: yes
   #command: systemctl reboot
   debug: 
     msg: 'Need reboot'
-
+# reboot:
+#   msg: 'Rebooting machine in 5 sec'
+#   reboot_timeout: 120  
+#
+# - name: restart selinux
+# service: 
+#   name=
+#   state=restart
+# become: yes
+# become_user: root  
