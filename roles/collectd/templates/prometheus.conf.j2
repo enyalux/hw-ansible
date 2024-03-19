@@ -3,3 +3,56 @@ LoadPlugin write_prometheus
   Port {{config_prometheus_port | default(9103)}}
 </Plugin>
 
+LoadPlugin df
+LoadPlugin processes
+LoadPlugin protocols
+LoadPlugin swap
+LoadPlugin tcpconns
+LoadPlugin uptime
+LoadPlugin users
+LoadPlugin vmem
+
+<Plugin processes>
+        CollectFileDescriptor true
+#       CollectContextSwitch true
+#       CollectMemoryMaps true
+        Process "name"
+#       ProcessMatch "foobar" "/usr/bin/perl foobar\\.pl.*"
+#       <Process "collectd">
+#               CollectFileDescriptor false
+#               CollectContextSwitch false
+#       </Process>
+#       <ProcessMatch "name" "regex">
+#               CollectFileDescriptor false
+#               CollectContextSwitch true
+#       </Process>
+</Plugin>
+
+
+<Plugin protocols>
+        Value "/^Tcp:/"
+#       IgnoreSelected false
+</Plugin>
+
+<Plugin swap>
+        ReportByDevice false
+        ReportBytes true
+#       ValuesAbsolute true
+#       ValuesPercentage false
+        ReportIO true
+</Plugin>
+
+
+<Plugin tcpconns>
+        ListeningPorts false
+        AllPortsSummary false
+#       LocalPort "25"
+#       RemotePort "25"
+</Plugin>
+
+
+
+<Plugin vmem>
+        Verbose false
+</Plugin>
+

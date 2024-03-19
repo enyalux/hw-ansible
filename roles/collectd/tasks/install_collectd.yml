@@ -3,5 +3,5 @@
   become: yes
   package:
     name: '{{ collectd_package_list }}' 
-    state: present
+    state: latest
 
