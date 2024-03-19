@@ -3,10 +3,11 @@
   hosts: managed_nodes
   become: yes
   gather_facts: no
+    #tags: common
 
   roles:
     - role: common
-      tags: one
+      tags: common
 
   
 - name: Install and configure collectd service on managed_nodes
@@ -15,7 +16,31 @@
   connection: local  
   become: yes
   gather_facts: no
+    #tags: collectd_install
 
   roles:
     - role: collectd
-      tags: two
+      tags: collectd_install
+
+- name: Check collectd metrix
+  hosts: control
+  connection: local
+  become: yes
+  gather_facts: no
+    #tags: collectd_check
+
+  roles:
+    - role: collectd
+      tags: collectd_check
+      
+
+- name: Remove collectd
+  hosts: control
+  connection: local
+  become: yes
+  gather_facts: no
+    #tags: collectd_remove
+
+  roles:
+    - role: collectd
+      tags: collectd_remove  

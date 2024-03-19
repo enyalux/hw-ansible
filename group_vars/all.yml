@@ -18,6 +18,8 @@ selinux_package_list:
 
 collectd_package_list:
   - collectd
+  #- collectd-core
+  #- collectd-utils
   - libmicrohttpd12
   - libprotobuf-c1
 

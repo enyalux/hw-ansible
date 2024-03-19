@@ -106,7 +106,7 @@ LoadPlugin syslog
 #LoadPlugin curl_json
 #LoadPlugin curl_xml
 #LoadPlugin dbi
-LoadPlugin df
+#LoadPlugin df
 #LoadPlugin disk
 #LoadPlugin dns
 #LoadPlugin dpdkevents
@@ -167,8 +167,8 @@ LoadPlugin df
 #LoadPlugin ping
 #LoadPlugin postgresql
 #LoadPlugin powerdns
-LoadPlugin processes
-LoadPlugin protocols
+#LoadPlugin processes
+#LoadPlugin protocols
 #LoadPlugin python
 #LoadPlugin redis
 #LoadPlugin rrdcached
@@ -180,23 +180,23 @@ LoadPlugin protocols
 #LoadPlugin snmp
 #LoadPlugin snmp_agent
 #LoadPlugin statsd
-LoadPlugin swap
+#LoadPlugin swap
 #LoadPlugin table
 #LoadPlugin tail
 #LoadPlugin tail_csv
-LoadPlugin tcpconns
+#LoadPlugin tcpconns
 #LoadPlugin teamspeak2
 #LoadPlugin ted
 #LoadPlugin thermal
 #LoadPlugin tokyotyrant
 #LoadPlugin turbostat
 #LoadPlugin unixsock
-LoadPlugin uptime
-LoadPlugin users
+#LoadPlugin uptime
+#LoadPlugin users
 #LoadPlugin uuid
 #LoadPlugin varnish
 #LoadPlugin virt
-LoadPlugin vmem
+#LoadPlugin vmem
 #LoadPlugin vserver
 #LoadPlugin wireless
 #LoadPlugin write_graphite
@@ -204,7 +204,7 @@ LoadPlugin vmem
 #LoadPlugin write_kafka
 #LoadPlugin write_log
 #LoadPlugin write_mongodb
-LoadPlugin write_prometheus
+#LoadPlugin write_prometheus
 #LoadPlugin write_redis
 #LoadPlugin write_riemann
 #LoadPlugin write_sensu
@@ -477,7 +477,7 @@ LoadPlugin write_prometheus
 #	</Database>
 #</Plugin>
 
-<Plugin df>
+#<Plugin df>
 #	Device "/dev/sda1"
 #	Device "192.168.0.2:/mnt/nfs"
 #	MountPoint "/home"
@@ -485,23 +485,23 @@ LoadPlugin write_prometheus
 
 	# ignore rootfs; else, the root file-system would appear twice, causing
 	# one of the updates to fail and spam the log
-	FSType rootfs
+#	FSType rootfs
 	# ignore the usual virtual / temporary file-systems
-	FSType sysfs
-	FSType proc
-	FSType devtmpfs
-	FSType devpts
-	FSType tmpfs
-	FSType fusectl
-	FSType cgroup
-	IgnoreSelected true
+#	FSType sysfs
+#	FSType proc
+#	FSType devtmpfs
+#	FSType devpts
+#	FSType tmpfs
+#	FSType fusectl
+#	FSType cgroup
+#	IgnoreSelected true
 
 #	ReportByDevice false
 #	ReportInodes false
 
 #	ValuesAbsolute true
 #	ValuesPercentage false
-</Plugin>
+#</Plugin>
 
 #<Plugin disk>
 #	Disk "hda"
@@ -1112,11 +1112,11 @@ LoadPlugin write_prometheus
 #	LocalSocket "/opt/collectd/var/run/collectd-powerdns"
 #</Plugin>
 
-<Plugin processes>
-	CollectFileDescriptor true
+#<Plugin processes>
+#	CollectFileDescriptor true
 #	CollectContextSwitch true
 #	CollectMemoryMaps true
-	Process "name"
+#	Process "name"
 #	ProcessMatch "foobar" "/usr/bin/perl foobar\\.pl.*"
 #	<Process "collectd">
 #		CollectFileDescriptor false
@@ -1126,12 +1126,12 @@ LoadPlugin write_prometheus
 #		CollectFileDescriptor false
 #		CollectContextSwitch true
 #	</Process>
-</Plugin>
+#</Plugin>
 
-<Plugin protocols>
-	Value "/^Tcp:/"
+#<Plugin protocols>
+#	Value "/^Tcp:/"
 #	IgnoreSelected false
-</Plugin>
+#</Plugin>
 
 #<Plugin python>
 #	ModulePath "/path/to/your/python/modules"
@@ -1303,13 +1303,13 @@ LoadPlugin write_prometheus
 #	TimerCount     false
 #</Plugin>
 
-<Plugin swap>
-	ReportByDevice false
-	ReportBytes true
+#<Plugin swap>
+#	ReportByDevice false
+#	ReportBytes true
 #	ValuesAbsolute true
 #	ValuesPercentage false
-	ReportIO true
-</Plugin>
+#	ReportIO true
+#</Plugin>
 
 #<Plugin table>
 #	<Table "/proc/slabinfo">
@@ -1400,12 +1400,12 @@ LoadPlugin write_prometheus
 #	</File>
 #</Plugin>
 
-<Plugin tcpconns>
-	ListeningPorts false
-	AllPortsSummary false
+#<Plugin tcpconns>
+#	ListeningPorts false
+#	AllPortsSummary false
 #	LocalPort "25"
 #	RemotePort "25"
-</Plugin>
+#</Plugin>
 
 #<Plugin teamspeak2>
 #	Host "127.0.0.1"
@@ -1511,9 +1511,9 @@ LoadPlugin write_prometheus
 #	ExtraStats "cpu_util disk disk_err domain_state fs_info job_stats_background pcpu perf vcpupin"
 #</Plugin>
 
-<Plugin vmem>
-	Verbose false
-</Plugin>
+#<Plugin vmem>
+#	Verbose false
+#</Plugin>
 
 #<Plugin write_graphite>
 #	<Node "example">

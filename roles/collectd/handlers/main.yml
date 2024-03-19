@@ -3,4 +3,6 @@
   service: 
     name: collectd
     state: restarted
+    enabled: yes  
   listen: 'collectd_restart'
+
