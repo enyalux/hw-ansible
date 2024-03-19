@@ -1,0 +1,5 @@
+LoadPlugin write_prometheus
+<Plugin write_prometheus>
+  Port {{config_prometheus_port | default(9103)}}
+</Plugin>
+

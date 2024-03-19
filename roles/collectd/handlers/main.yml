@@ -1,0 +1,6 @@
+---
+- name: collectd_restart
+  service: 
+    name: collectd
+    state: restarted
+  listen: 'collectd_restart'

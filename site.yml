@@ -5,5 +5,17 @@
   gather_facts: no
 
   roles:
-   - common
+    - role: common
+      tags: one
 
+  
+- name: Install and configure collectd service on managed_nodes
+  #hosts: managed_nodes
+  hosts: control
+  connection: local  
+  become: yes
+  gather_facts: no
+
+  roles:
+    - role: collectd
+      tags: two

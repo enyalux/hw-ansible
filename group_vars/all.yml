@@ -14,3 +14,39 @@ selinux_package_list:
   - selinux-basics 
   - selinux-utils
     #- libselinux-python3
+
+
+collectd_package_list:
+  - collectd
+  - libmicrohttpd12
+  - libprotobuf-c1
+
+config_prometheus_port: 9103
+config_network_port: 25826
+config_network_host: localhost
+
+
+config_prometheus_collected_modules:
+  - df
+  - processes
+  - protocols
+  - swap
+  - tcpconns
+  - uptime
+  - users
+  - vmem
+
+config_collectd_folder: '/etc/collectd'
+config_collectd_plugin_folder: '/etc/collectd/collectd.conf.d'
+
+
+config_collectd_template: 'collectd.conf.j2'  
+config_collectd: 'collectd.conf'
+
+config_collectd_prometheus_template: 'prometheus.conf.j2'
+config_collectd_prometheus: 'prometheus.conf'
+
+
+config_collectd_network_template: 'network.conf.j2'
+config_collectd_network: 'network.conf'
+

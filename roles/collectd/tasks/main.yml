@@ -1,0 +1,4 @@
+---
+- include_tasks: install_collectd.yml
+- include_tasks: configure_collectd.yml
+ 

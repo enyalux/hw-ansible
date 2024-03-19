@@ -1,0 +1,7 @@
+---
+- name: Install collectd
+  become: yes
+  package:
+    name: '{{ collectd_package_list }}' 
+    state: present
+

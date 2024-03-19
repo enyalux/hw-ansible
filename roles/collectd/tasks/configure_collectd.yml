@@ -1,0 +1,31 @@
+---
+- name: Configure prometheus collectd.conf
+  template: 
+    src: '{{config_collectd_template}}'
+    dest: '{{config_collectd_folder}}/{{config_collectd}}'
+    mode: 0644
+    group: root
+    owner: root
+  notify:
+    - collectd_restart
+
+
+- name: Configure prometheus write plugin
+  template:
+    src: '{{config_collectd_prometheus_template}}'
+    dest: '{{config_collectd_plugin_folder}}/{{config_collectd_prometheus}}'
+    mode: 0644
+    group: root
+    owner: root
+  notify: 
+    - collectd_restart
+
+- name: Configure network
+  template:
+    src: '{{config_collectd_network_template}}'
+    dest: '{{config_collectd_plugin_folder}}/{{config_collectd_network}}'
+    mode: 0644
+    group: root
+    owner: root
+  notify:
+    - collectd_restart    
