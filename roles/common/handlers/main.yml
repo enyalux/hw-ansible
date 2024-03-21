@@ -2,10 +2,10 @@
 - name: reboot_server
   become: yes
   become_user: root
-  #command: systemctl reboot
-  debug: 
-    msg: 'Need reboot'
-  listen: 'reboot_server'    
+  command: systemctl reboot
+  #debug: 
+  #  msg: 'Need reboot'
+  #listen: 'reboot_server'    
 # reboot:
 #   msg: 'Rebooting machine in 5 sec'
 #   reboot_timeout: 120  
