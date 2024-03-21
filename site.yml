@@ -3,44 +3,50 @@
   hosts: managed_nodes
   become: yes
   gather_facts: no
-    #tags: common
 
   roles:
     - role: common
       tags: common
+      when: 
+        - module == 'common'
 
   
 - name: Install and configure collectd service on managed_nodes
-  #hosts: managed_nodes
-  hosts: control
-  connection: local  
+  hosts: managed_nodes
+  #hosts: control
+  #connection: local  
   become: yes
   gather_facts: no
-    #tags: collectd_install
 
   roles:
     - role: collectd
-      tags: collectd_install
+      when: 
+        - module == 'collectd'
+        - action == 'install'
 
 - name: Check collectd metrix
-  hosts: control
-  connection: local
+  hosts: managed_nodes
+  #hosts: control
+  #connection: local
   become: yes
   gather_facts: no
-    #tags: collectd_check
 
   roles:
     - role: collectd
-      tags: collectd_check
+      when: 
+        - module == 'collectd'
+        - action == 'check'
       
 
 - name: Remove collectd
-  hosts: control
-  connection: local
+  hosts: managed_nodes
+  #hosts: control
+  #connection: local
   become: yes
   gather_facts: no
-    #tags: collectd_remove
 
   roles:
     - role: collectd
-      tags: collectd_remove  
+      when: 
+        - module == 'collectd'
+        - action == 'remove'

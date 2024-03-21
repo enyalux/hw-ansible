@@ -1,30 +1,23 @@
 ---
 - name: Get collectd service status
-  service:
-    name: collectd
-    state: started
+  systemd:
+    name: 'collectd'
   register: collectd_status
-  tags: 
-    - collectd_check
-    - collectd_install
 
 - name: Display collectd service status
   debug:
-    var: collectd_status.state
-  tags:
-    - collectd_check
-    - collectd_install
+    var: collectd_status.status.ActiveState
 
 - name: Check collected metrix
-  #  tags: check
-  #  command: 'curl http://localhost:9103'
   shell: 'curl http://localhost:9103'
   register: curl_result
-  tags:
-    - collectd_check
+  when: 
+    - collectd_status is defined
+    - collectd_status.status.ActiveState == "active"
 
 - name: Print result
   debug:
     var: curl_result
-  tags:
-    - collectd_check    
+  when: 
+    - collectd_status is defined
+    - collectd_status.status.ActiveState == "active"

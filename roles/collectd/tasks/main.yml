@@ -1,11 +1,20 @@
 ---
 - include_tasks: install_collectd.yml
-  tags: collectd_install
+  when:
+    - action == 'install'
+      #tags: collectd_install
 - include_tasks: configure_collectd.yml
-  tags: collectd_install
+  when:
+    - action == 'install'
+      #tags: collectd_install
 - include_tasks: check_collectd.yml
-  tags: 
-    - collectd_check
-    - collectd_install
+  when:
+    - action == 'check'
+  #tags: 
+  #  - collectd_check
+  #  - collectd_install
 - include_tasks: remove_collectd.yml
-  tags: collectd_remove 
+  when:
+    - action == 'remove' 
+
+  #tags: collectd_remove 

@@ -28,4 +28,15 @@
     group: root
     owner: root
   notify:
-    - collectd_restart    
+    - collectd_restart
+
+- name: Add configuration for extra modules for monitoring
+  template:
+    src: '{{config_collectd_extra_modules_template}}'
+    dest: '{{config_collectd_plugin_folder}}/{{config_collectd_extra_modules}}'
+    mode: 0644
+    group: root
+    owner: root
+  notify:
+    - collectd_restart
+      
